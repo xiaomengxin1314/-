@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-nav-bar title="登录"
+    <van-nav-bar title="登录" @click-left="$router.back()"
       ><van-icon name="cross" slot="left"
     /></van-nav-bar>
     <van-form @submit="onSubmit" ref="form">
@@ -16,8 +16,8 @@
           },
         ]"
       >
-        <i class="toutiao toutiao-shouji" slot="left-icon"></i
-      ></van-field>
+        <i class="toutiao toutiao-shouji" slot="left-icon"></i>
+      </van-field>
 
       <van-field
         v-model.trim="code"
@@ -29,7 +29,8 @@
           { pattern: /^\d{6}$/, message: '验证码必须是六位' },
         ]"
       >
-        <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i>
+        <!-- <i class="toutiao toutiao-yanzhengma" slot="left-icon"></i> -->
+        <HmIcon :name="'yanzhengma'" slot="left-icon"></HmIcon>
         <template #button>
           <van-count-down
             v-if="isCountDownShow"
@@ -56,6 +57,7 @@
 </template>
 
 <script>
+import HmIcon from '@/components/HmIcon.vue'
 import { getSmsCode, login } from '@/api/user'
 export default {
   created () { },
@@ -74,6 +76,7 @@ export default {
         const res = await login(values)
         this.$store.commit('setUser', res.data.data)
         console.log(res)
+        this.$router.push({ name: 'my' })
       } catch (err) {
         console.log(err)
       }
@@ -101,7 +104,7 @@ export default {
   computed: {},
   watch: {},
   filters: {},
-  components: {}
+  components: { HmIcon }
 }
 </script>
 
