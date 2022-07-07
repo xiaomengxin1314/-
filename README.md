@@ -8,3 +8,8 @@ git push
       console.log(this.scrollTop);
     }),
   },
+
+
+
+# v-model 
+在表单中双向绑定

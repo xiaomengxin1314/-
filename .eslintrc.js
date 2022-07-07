@@ -17,6 +17,7 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-undef': 'off',
     'vue/no-mutating-props': 0,
-    'vue/no-duplicate-attributes': 0
+    'vue/no-duplicate-attributes': 0,
+    camelcase: 0
   }
 }

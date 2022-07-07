@@ -8,8 +8,12 @@ import 'vant/lib/index.less'
 import 'amfe-flexible'
 import '@/styles/icon.less'
 import '@/styles/reset.less'
-import '@/styles//index.less'
+import '@/styles/index.less'
 import * as obj from '@/filters'
+import '@/components/index'
+import FollowUser from '@/components/FollowUser.vue'
+Vue.component(FollowUser.name, FollowUser)
+
 Object.keys(obj).forEach(key => {
   Vue.filter(key, obj[key])
 })
